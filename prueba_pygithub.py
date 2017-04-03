@@ -23,7 +23,7 @@ def get_followers(user, followers, visited, pending):
 # First create a Github instance:
     
 if	__name__	==	"__main__":
-    g = Github("flagroth","6igavdkE#")    
+    g = Github("flagroth","")    
     visited=[]
     pending=[]
     followers=[]
