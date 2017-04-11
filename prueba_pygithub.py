@@ -9,7 +9,7 @@ def get_followers(followers, visited, pending):
     user=pending.pop(0)
     print(user)
     visited.append(user)      
-    if len(visited)>20:
+    if len(visited)>5:
         return
     try:
         for f in g.get_user(user).get_followers():
@@ -18,13 +18,14 @@ def get_followers(followers, visited, pending):
             if f.login not in visited:
                 pending.append(f.login)
     except :
+        print("Excepción")
         return -1
     get_followers(followers, visited, pending)
     
 
 if	__name__ == "__main__":
     # First create a Github instance:
-    g = Github("flagroth","")
+    g = Github("flagroth","6igavdkE#")
     visited=[]
     pending=["adamtheturtle"]
     followers=[]

@@ -32,7 +32,7 @@ d3.json("miserables.json", function(error, graph) {
   if (error) throw error;
 
   var nodes = graph.nodes,
-      nodeById = d3.map(nodes, function(d) { return d.index; }),
+      nodeById = d3.map(nodes, function(d) { return d.id; }),
       links = graph.links,
       bilinks = [];
 
@@ -51,7 +51,7 @@ d3.json("miserables.json", function(error, graph) {
       .attr("class", "link");
 
   var node = svg.selectAll(".node")
-    .data(nodes.filter(function(d) { return d.index; }))
+    .data(nodes.filter(function(d) { return d.id; }))
     .enter().append("circle")
       .attr("class", "node")
       .attr("r", 5)
@@ -62,7 +62,7 @@ d3.json("miserables.json", function(error, graph) {
           .on("end", dragended));
 
   node.append("title")
-      .text(function(d) { return d.index; });
+      .text(function(d) { return d.id; });
 
   simulation
       .nodes(nodes)
